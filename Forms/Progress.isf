@@ -1,0 +1,136 @@
+; -- Created with ISN Form Studio 2 for ISN AutoIt Studio -- ;
+#include <StaticConstants.au3>
+#include <GUIConstantsEx.au3>
+#include <WindowsConstants.au3>
+#Include <GuiButton.au3>
+#include <ProgressConstants.au3>
+
+$hProgress = GUICreate("Progress",260,70,-1,-1,$WS_POPUPWINDOW,-1,$Main)
+$idTitle = GUICtrlCreateLabel("",5,5,250,15,-1,-1)
+GUICtrlSetBkColor(-1,"-2")
+$idMailNumber = GUICtrlCreateLabel("",5,50,250,15,-1,-1)
+GUICtrlSetBkColor(-1,"-2")
+$idProgressbar = GUICtrlCreateProgress(5,25,250,20,-1,-1)
+
+
+
+#cs
+[gui]
+Handle_deklaration=default
+Handle_deklaration_const=false
+title=Progress
+breite=260
+hoehe=70
+style=$WS_POPUPWINDOW
+exstyle=-1
+bgcolour=0xF0F0F0
+bgimage=none
+handle=$hProgress
+parent=$Main
+code=
+codebeforegui=
+xpos=-1
+ypos=-1
+center_gui=true
+title_textmode=normal
+isf_include_once=false
+only_controls_in_isf=false
+const_modus=default
+gui_code_in_function=false
+gui_code_in_function_name=
+gui_event_close=
+gui_event_minimize=
+gui_event_restore=
+gui_event_maximize=
+gui_event_mousemove=
+gui_event_primarydown=
+gui_event_primaryup=
+gui_event_secoundarydown=
+gui_event_secoundaryup=
+gui_event_resized=
+gui_event_dropped=
+[0x000B23D0]
+handle=409
+locked=0
+resize=
+code=
+type=label
+x=5
+y=5
+width=250
+height=15
+text=
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idTitle
+func=
+bgimage=
+order=0
+tabpage=-1
+iconindex=
+textmode=text
+[0x0002246A]
+handle=410
+locked=0
+resize=
+code=
+type=label
+x=5
+y=50
+width=250
+height=15
+text=
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idMailNumber
+func=
+bgimage=
+order=2
+tabpage=-1
+iconindex=
+textmode=text
+[0x0009232C]
+handle=411
+locked=0
+resize=
+code=
+type=progress
+x=5
+y=25
+width=250
+height=20
+tooltip=
+text=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idProgressbar
+func=
+bgimage=
+order=3
+tabpage=-1
+iconindex=
+textmode=text
+#ce

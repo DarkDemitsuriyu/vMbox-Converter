@@ -1,0 +1,311 @@
+; -- Created with ISN Form Studio 2 for ISN AutoIt Studio -- ;
+#include <StaticConstants.au3>
+#include <GUIConstantsEx.au3>
+#include <WindowsConstants.au3>
+#Include <GuiButton.au3>
+#include <TreeViewConstants.au3>
+#include <EditConstants.au3>
+#include <GuiToolbar.au3>
+
+$Main = GUICreate("Mbox Конвертер",395,370,-1,-1,BitOr($WS_SIZEBOX,$WS_MAXIMIZEBOX,$WS_MINIMIZEBOX),-1)
+GUISetOnEvent($GUI_EVENT_CLOSE, "_Exit", $Main)
+$idPathTo = GUICtrlCreateInput("",80,320,290,20,-1,$WS_EX_CLIENTEDGE)
+GUICtrlSetResizing(-1,582)
+GUICtrlSetState ( -1, $GUI_DISABLE )
+GUICtrlCreateLabel("Сохранить в",10,320,65,20,BitOr($SS_CENTERIMAGE,$SS_NOTIFY),-1)
+GUICtrlSetBkColor(-1,"-2")
+GUICtrlSetResizing(-1,834)
+$idMboxList = GUICtrlCreateTreeView(0,33,395,280,$TVS_CHECKBOXES,$WS_EX_CLIENTEDGE)
+GUICtrlSetResizing(-1,102)
+$idBtnTo = GUICtrlCreateButton("...",368,320,20,21,-1,-1)
+GUICtrlSetState ( -1, $GUI_DISABLE )
+$idRadioEML = GUICtrlCreateRadio("В EML",283,10,50,15,-1,-1)
+GUICtrlSetState(-1,BitOr($GUI_CHECKED,$GUI_SHOW,$GUI_ENABLE))
+GUICtrlSetResizing(-1,804)
+GUICtrlCreateButton("",19961,19815,30,30,$BS_ICON,-1)
+GUICtrlSetTip(-1,"Открыть папку с MBOX...")
+GUICtrlSetImage(-1, @SystemDir & '\shell32.dll', -4, 0)
+$idRadioPST = GUICtrlCreateRadio("В PST",340,10,50,15,-1,-1)
+GUICtrlSetResizing(-1,804)
+GUICtrlSetState ( -1, $GUI_DISABLE )
+$idToolbar = _GUICtrlToolbar_Create($Main,BitOr($TBSTYLE_FLAT,$TBSTYLE_TOOLTIPS),0)
+#include <GuiImageList.au3>
+#include <GuiToolTip.au3>
+Global Enum $idOpenBtn = 1000, $idConvertBtn, $idSettingsBtn, $idAboutBtn
+$hToolTip = _GUIToolTip_Create($idToolbar)
+$hNormal = _GUIImageList_Create(24, 24, 5, 1)
+_GUIImageList_AddIcon($hNormal, 'Imageres.dll', 107, True)
+_GUIImageList_AddIcon($hNormal, 'Imageres.dll', 267, True)
+_GUIImageList_AddIcon($hNormal, 'Imageres.dll', 109, True)
+_GUIImageList_AddIcon($hNormal, 'Imageres.dll', 76, True)
+_GUICtrlToolbar_SetIndent($idToolbar, 1)
+_GUICtrlToolbar_SetToolTips($idToolbar, $hToolTip)
+_GUICtrlToolbar_SetImageList($idToolbar, $hNormal)
+_GUICtrlToolbar_AddButton($idToolbar, $idOpenBtn, 0)
+_GUICtrlToolbar_AddButton($idToolbar, $idConvertBtn, 1)
+_GUICtrlToolbar_AddButton($idToolbar, $idSettingsBtn, 2)
+_GUICtrlToolbar_AddButton($idToolbar, $idAboutBtn, 3)
+_GUICtrlToolbar_SetButtonState($idToolbar, $idConvertBtn, $TBSTATE_INDETERMINATE )
+
+
+
+#cs
+[gui]
+Handle_deklaration=default
+Handle_deklaration_const=false
+title=Mbox Конвертер
+breite=395
+hoehe=370
+style=$WS_SIZEBOX+$WS_MAXIMIZEBOX+$WS_MINIMIZEBOX
+exstyle=-1
+bgcolour=0xF0F0F0
+bgimage=none
+handle=$Main
+parent=
+code=
+codebeforegui=
+xpos=-1
+ypos=-1
+center_gui=true
+title_textmode=normal
+isf_include_once=false
+only_controls_in_isf=false
+const_modus=default
+gui_code_in_function=false
+gui_code_in_function_name=
+gui_event_close=_Exit
+gui_event_minimize=
+gui_event_restore=
+gui_event_maximize=
+gui_event_mousemove=
+gui_event_primarydown=
+gui_event_primaryup=
+gui_event_secoundarydown=
+gui_event_secoundaryup=
+gui_event_resized=
+gui_event_dropped=
+[0x000A29EE]
+handle=409
+locked=0
+resize=582
+code=GUICtrlSetState ( -1, $GUI_DISABLE )
+type=input
+x=80
+y=320
+width=290
+height=20
+text=
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=$WS_EX_CLIENTEDGE
+textcolour=0x000000
+bgcolour=
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idPathTo
+func=
+bgimage=
+tabpage=-1
+iconindex=
+textmode=text
+order=5
+[0x00022B40]
+handle=410
+locked=0
+resize=834
+code=
+type=label
+x=10
+y=320
+width=65
+height=20
+text=Сохранить в
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=$SS_CENTERIMAGE+$SS_NOTIFY
+exstyle=
+textcolour=0x000000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=
+func=
+bgimage=
+tabpage=-1
+iconindex=
+textmode=text
+order=6
+[0x00022BA2]
+handle=411
+locked=0
+resize=102
+code=
+type=treeview
+x=0
+y=33
+width=395
+height=280
+text=
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=$TVS_CHECKBOXES
+exstyle=$WS_EX_CLIENTEDGE
+textcolour=0x000000
+bgcolour=
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idMboxList
+func=
+bgimage=
+order=7
+tabpage=-1
+iconindex=
+textmode=text
+[0x000229E8]
+handle=412
+locked=0
+resize=804
+code=
+type=radio
+x=283
+y=10
+width=50
+height=15
+text=В EML
+tooltip=
+state=$GUI_CHECKED+$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=0xF0F0F0
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idRadioEML
+func=
+bgimage=
+order=8
+tabpage=-1
+iconindex=
+textmode=text
+[0x000229E6]
+handle=413
+locked=0
+resize=
+code=GUICtrlSetImage(-1, @SystemDir & '\shell32.dll', -4, 0)
+type=button
+x=19961
+y=19815
+width=30
+height=30
+text=
+tooltip=Открыть папку с MBOX...
+state=$GUI_SHOW+$GUI_ENABLE
+style=$BS_ICON
+exstyle=
+textcolour=0x000000
+bgcolour=
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=
+func=
+bgimage=
+tabpage=-1
+iconindex=
+textmode=text
+order=9
+[0x000229E4]
+handle=414
+locked=0
+resize=804
+code=GUICtrlSetState ( -1, $GUI_DISABLE )
+type=radio
+x=340
+y=10
+width=50
+height=15
+text=В PST
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=0xF0F0F0
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idRadioPST
+func=
+bgimage=
+tabpage=-1
+iconindex=
+textmode=text
+order=10
+[0x000229E2]
+handle=415
+locked=0
+resize=
+code=#include <GuiImageList.au3>[BREAK]#include <GuiToolTip.au3>[BREAK]Global Enum $idOpenBtn = 1000, $idConvertBtn, $idSettingsBtn, $idAboutBtn[BREAK]$hToolTip = _GUIToolTip_Create($idToolbar)[BREAK]$hNormal = _GUIImageList_Create(24, 24, 5, 1)[BREAK]_GUIImageList_AddIcon($hNormal, 'Imageres.dll', 107, True)[BREAK]_GUIImageList_AddIcon($hNormal, 'Imageres.dll', 267, True)[BREAK]_GUIImageList_AddIcon($hNormal, 'Imageres.dll', 109, True)[BREAK]_GUIImageList_AddIcon($hNormal, 'Imageres.dll', 76, True)[BREAK]_GUICtrlToolbar_SetIndent($idToolbar, 1)[BREAK]_GUICtrlToolbar_SetToolTips($idToolbar, $hToolTip)[BREAK]_GUICtrlToolbar_SetImageList($idToolbar, $hNormal)[BREAK]_GUICtrlToolbar_AddButton($idToolbar, $idOpenBtn, 0)[BREAK]_GUICtrlToolbar_AddButton($idToolbar, $idConvertBtn, 1)[BREAK]_GUICtrlToolbar_AddButton($idToolbar, $idSettingsBtn, 2)[BREAK]_GUICtrlToolbar_AddButton($idToolbar, $idAboutBtn, 3)[BREAK]_GUICtrlToolbar_SetButtonState($idToolbar, $idConvertBtn, $TBSTATE_INDETERMINATE )
+type=toolbar
+x=5
+y=5
+width=25
+height=25
+text=
+tooltip=
+state=
+style=$TBSTYLE_FLAT+$TBSTYLE_TOOLTIPS
+exstyle=
+textcolour=0x000000
+bgcolour=
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idToolbar
+func=
+bgimage=
+order=13
+tabpage=-1
+iconindex=
+textmode=text
+[0x000229DE]
+handle=416
+locked=0
+resize=
+code=GUICtrlSetState ( -1, $GUI_DISABLE )
+type=button
+x=368
+y=320
+width=20
+height=21
+text=...
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idBtnTo
+func=
+bgimage=
+order=8
+tabpage=-1
+iconindex=
+textmode=text
+#ce

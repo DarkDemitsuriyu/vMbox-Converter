@@ -1,0 +1,197 @@
+; -- Created with ISN Form Studio 2 for ISN AutoIt Studio -- ;
+#include <StaticConstants.au3>
+#include <GUIConstantsEx.au3>
+#include <WindowsConstants.au3>
+#Include <GuiButton.au3>
+#include <UpDownConstants.au3>
+
+$hSettings = GUICreate("Настройки",245,150,-1,-1,-1,-1)
+GUISetOnEvent($GUI_EVENT_CLOSE, "_Exit", $hSettings)
+GUICtrlCreateLabel("Может увеличить скорость чтения больших файлов, но так же может привести к исчерпанию доступной памяти.",10,40,225,40,-1,-1)
+GUICtrlSetBkColor(-1,"-2")
+$idInputFoldersRename = GUICtrlCreateCheckbox("Переводить папки Thunderbird",5,90,223,20,-1,-1)
+$idBtnSettingsApply = GUICtrlCreateButton("Применить",70,115,105,30,-1,-1)
+GUICtrlCreateGroup("Количество считываемых символов.",5,5,235,85,-1,-1)
+GUICtrlSetBkColor(-1,"0xF0F0F0")
+$idInputStep = GUICtrlCreateInput("0",10,20,225,20, -1,$WS_EX_CLIENTEDGE)
+$idInputStep_Updown = GUICtrlCreateUpdown(-1,$UDS_NOTHOUSANDS)
+GUICtrlSetLimit(-1, 999999999)
+
+
+
+#cs
+[gui]
+Handle_deklaration=default
+Handle_deklaration_const=false
+title=Настройки
+breite=245
+hoehe=150
+style=-1
+exstyle=-1
+bgcolour=0xF0F0F0
+bgimage=none
+handle=$hSettings
+parent=
+code=
+codebeforegui=
+xpos=-1
+ypos=-1
+center_gui=true
+title_textmode=normal
+isf_include_once=false
+only_controls_in_isf=false
+const_modus=default
+gui_code_in_function=false
+gui_code_in_function_name=
+gui_event_close=_Exit
+gui_event_minimize=
+gui_event_restore=
+gui_event_maximize=
+gui_event_mousemove=
+gui_event_primarydown=
+gui_event_primaryup=
+gui_event_secoundarydown=
+gui_event_secoundaryup=
+gui_event_resized=
+gui_event_dropped=
+[0x000629F0]
+handle=409
+locked=0
+resize=
+code=
+type=label
+x=10
+y=40
+width=225
+height=40
+text=Может увеличить скорость чтения больших файлов, но так же может привести к исчерпанию доступной памяти.
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=-2
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=
+func=
+bgimage=
+order=2
+tabpage=-1
+iconindex=
+textmode=text
+[0x000229FC]
+handle=410
+locked=0
+resize=
+code=
+type=checkbox
+x=5
+y=90
+width=223
+height=20
+text=Переводить папки Thunderbird
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=0xF0F0F0
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idInputFoldersRename
+func=
+bgimage=
+order=4
+tabpage=-1
+iconindex=
+textmode=text
+[0x000229FA]
+handle=411
+locked=0
+resize=
+code=
+type=group
+x=5
+y=5
+width=235
+height=85
+text=Количество считываемых символов.
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=0xF0F0F0
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=
+func=
+bgimage=
+order=5
+tabpage=-1
+iconindex=
+textmode=text
+[0x000229F8]
+handle=412
+locked=0
+resize=
+code=
+type=button
+x=70
+y=115
+width=105
+height=30
+text=Применить
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=
+exstyle=
+textcolour=0x000000
+bgcolour=
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idBtnSettingsApply
+func=
+bgimage=
+order=5
+tabpage=-1
+iconindex=
+textmode=text
+[0x000229F6]
+handle=413
+locked=0
+resize=
+code=GUICtrlSetLimit(-1, 999999999)
+type=updown
+x=10
+y=20
+width=225
+height=20
+text=0
+tooltip=
+state=$GUI_SHOW+$GUI_ENABLE
+style=$UDS_NOTHOUSANDS
+exstyle=$WS_EX_CLIENTEDGE
+textcolour=0x000000
+bgcolour=
+font=MS Sans Serif
+fontsize=8
+fontstyle=400
+fontattribute=0
+id=$idInputStep
+func=
+bgimage=
+order=6
+tabpage=-1
+iconindex=
+textmode=text
+#ce
